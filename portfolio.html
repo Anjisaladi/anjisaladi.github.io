@@ -1,0 +1,1506 @@
+<title>Rama Saladi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap">
+
+<style>
+/* ── Layout: single column, content-max 760px, hero spans full width ── */
+:root {
+  --bg: #f7f6f2;
+  --bg2: #eeede7;
+  --card: #ffffff;
+  --fg: #18170f;
+  --fg2: #5a5849;
+  --accent: #c45d1e;
+  --accent2: #1a3a52;
+  --tag-bg: #e8e6df;
+  --border: #d8d6ce;
+  --hero-bg: #1a3a52;
+  --hero-fg: #f0ede4;
+  --hero-accent: #e8833a;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131210;
+    --bg2: #1d1c18;
+    --card: #242320;
+    --fg: #f0ede4;
+    --fg2: #a09c8d;
+    --accent: #e8833a;
+    --accent2: #7ab4d4;
+    --tag-bg: #2e2c27;
+    --border: #3a3830;
+    --hero-bg: #0e2033;
+    --hero-fg: #f0ede4;
+    --hero-accent: #e8833a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131210;
+  --bg2: #1d1c18;
+  --card: #242320;
+  --fg: #f0ede4;
+  --fg2: #a09c8d;
+  --accent: #e8833a;
+  --accent2: #7ab4d4;
+  --tag-bg: #2e2c27;
+  --border: #3a3830;
+  --hero-bg: #0e2033;
+  --hero-fg: #f0ede4;
+  --hero-accent: #e8833a;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  padding-inline: 0;
+  padding-block: 0;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding-inline: clamp(16px, 5vw, 64px);
+}
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  gap: 24px;
+}
+.nav-name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--fg);
+  text-decoration: none;
+  letter-spacing: -.02em;
+}
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  padding: 0;
+}
+.nav-links a {
+  font-size: .85rem;
+  font-weight: 500;
+  color: var(--fg2);
+  text-decoration: none;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  transition: color .15s;
+}
+.nav-links a:hover { color: var(--accent); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-fg);
+  padding: clamp(48px, 10vw, 100px) clamp(16px, 5vw, 64px);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 70% 110%, rgba(232,131,58,.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 48px;
+  align-items: center;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: .78rem;
+  color: var(--hero-accent);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.hero-name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2.4rem, 7vw, 4.2rem);
+  line-height: 1.05;
+  letter-spacing: -.03em;
+  color: var(--hero-fg);
+  text-wrap: balance;
+  margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(240,237,228,.72);
+  max-width: 520px;
+  line-height: 1.65;
+  margin-bottom: 32px;
+}
+.hero-sub strong {
+  color: var(--hero-fg);
+  font-weight: 500;
+}
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.hero-badge {
+  font-size: .78rem;
+  font-weight: 500;
+  color: var(--hero-accent);
+  border: 1px solid rgba(232,131,58,.4);
+  border-radius: 4px;
+  padding: 4px 10px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.hero-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--hero-accent) 0%, #1a3a52 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.2rem;
+  color: #fff;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(232,131,58,.25);
+}
+@media (max-width: 560px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-avatar { display: none; }
+}
+
+/* ── MAIN CONTENT ── */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vw, 80px) clamp(16px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* ── SECTION HEADERS ── */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+.section-title {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  color: var(--fg);
+  text-wrap: balance;
+  margin-bottom: 16px;
+}
+
+/* ── PROJECT CARD ── */
+.project-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.project-showcase {
+  background: var(--hero-bg);
+  padding: 32px 24px 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  overflow: hidden;
+  min-height: 220px;
+  position: relative;
+}
+.phone-frame {
+  width: 120px;
+  background: #0d0d0d;
+  border-radius: 18px;
+  border: 2px solid rgba(255,255,255,.12);
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  position: relative;
+  flex-shrink: 0;
+  transform: translateY(16px);
+}
+.phone-frame:nth-child(2) { transform: translateY(0); z-index: 2; width: 130px; border-radius: 20px; }
+.phone-frame:nth-child(3) { transform: translateY(20px); }
+.phone-screen {
+  width: 100%;
+  padding-top: 175%;
+  position: relative;
+}
+/* Screen 1: Feed */
+.screen-feed {
+  background: linear-gradient(170deg, #1a2a40 0%, #0e1a2d 100%);
+  position: absolute;
+  inset: 0;
+}
+.screen-feed-topbar {
+  padding: 10px 8px 6px;
+  font-size: 8px;
+  font-family: 'DM Sans', sans-serif;
+  color: rgba(255,255,255,.9);
+  font-weight: 600;
+}
+.feed-card {
+  margin: 4px 6px;
+  background: rgba(255,255,255,.07);
+  border-radius: 7px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,.1);
+  overflow: hidden;
+}
+.feed-card-img {
+  height: 44px;
+  background: linear-gradient(135deg, #2d5a8a 0%, #1a3852 100%);
+  position: relative;
+}
+.feed-card-img::after {
+  content: '🗺️';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 18px;
+}
+.feed-card-body {
+  padding: 5px 6px;
+}
+.feed-card-title { font-size: 6px; color: #fff; font-weight: 600; margin-bottom: 2px; }
+.feed-card-meta { font-size: 5px; color: rgba(255,255,255,.5); }
+/* Screen 2: Profile */
+.screen-profile {
+  background: linear-gradient(150deg, #3a6186 0%, #1a2a40 100%);
+  position: absolute;
+  inset: 0;
+}
+.profile-header-bar {
+  padding: 10px 8px 5px;
+  font-size: 8px;
+  color: rgba(255,255,255,.95);
+  font-weight: 600;
+}
+.profile-glass {
+  margin: 4px 6px;
+  background: rgba(255,255,255,.12);
+  border-radius: 9px;
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(6px);
+  padding: 10px 8px;
+  text-align: center;
+}
+.profile-avatar-mini {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1a3a52;
+  margin: 0 auto 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #fff;
+  font-weight: 700;
+}
+.profile-name-mini { font-size: 7px; color: #fff; font-weight: 600; }
+.profile-handle { font-size: 5.5px; color: rgba(255,255,255,.6); margin-bottom: 6px; }
+.profile-btn {
+  background: #e8833a;
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-size: 5.5px;
+  color: #fff;
+  font-weight: 600;
+}
+/* Screen 3: Timeline */
+.screen-timeline {
+  background: linear-gradient(140deg, #1e3a5f 0%, #0e1d33 100%);
+  position: absolute;
+  inset: 0;
+}
+.timeline-header {
+  padding: 10px 8px 5px;
+  font-size: 7px;
+  color: rgba(255,255,255,.9);
+  font-weight: 600;
+}
+.timeline-stop {
+  display: flex;
+  gap: 5px;
+  margin: 3px 6px;
+  align-items: flex-start;
+}
+.stop-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e8833a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.stop-content {
+  background: rgba(255,255,255,.08);
+  border-radius: 5px;
+  border: 1px solid rgba(255,255,255,.09);
+  padding: 4px 5px;
+  flex: 1;
+  min-width: 0;
+}
+.stop-name { font-size: 5.5px; color: #fff; font-weight: 600; }
+.stop-note { font-size: 4.5px; color: rgba(255,255,255,.5); margin-top: 1px; }
+.phone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 6px;
+  background: #0d0d0d;
+  border-radius: 0 0 6px 6px;
+  z-index: 3;
+}
+
+.project-body {
+  padding: 28px 28px 32px;
+}
+.project-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+.project-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.project-status {
+  font-size: .72rem;
+  font-weight: 500;
+  background: rgba(232,131,58,.12);
+  color: var(--accent);
+  border: 1px solid rgba(232,131,58,.25);
+  border-radius: 4px;
+  padding: 2px 8px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.project-name {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.9rem;
+  letter-spacing: -.025em;
+  margin-bottom: 12px;
+  color: var(--fg);
+}
+.project-desc {
+  color: var(--fg2);
+  font-size: .97rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 640px;
+}
+.project-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 28px;
+}
+.highlight {
+  padding: 14px 16px;
+  background: var(--bg2);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.highlight-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  margin-bottom: 5px;
+}
+.highlight-value {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.tag {
+  font-size: .78rem;
+  font-weight: 500;
+  background: var(--tag-bg);
+  color: var(--fg2);
+  border-radius: 4px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+}
+.tag.primary {
+  background: rgba(26,58,82,.1);
+  color: var(--accent2);
+  border-color: rgba(26,58,82,.2);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tag.primary {
+    background: rgba(122,180,212,.1);
+    color: var(--accent2);
+    border-color: rgba(122,180,212,.2);
+  }
+}
+:root[data-theme="dark"] .tag.primary {
+  background: rgba(122,180,212,.1);
+  color: var(--accent2);
+  border-color: rgba(122,180,212,.2);
+}
+.project-links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: .85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 9px 18px;
+  text-decoration: none;
+  transition: all .15s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn-primary:hover { background: #b5511a; }
+.btn-outline {
+  background: transparent;
+  color: var(--fg);
+  border: 1.5px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--fg2); }
+
+/* ── SKILLS SECTION ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+.skill-card {
+  padding: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+.skill-icon {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+.skill-name {
+  font-weight: 600;
+  font-size: .97rem;
+  color: var(--fg);
+  margin-bottom: 6px;
+}
+.skill-desc {
+  font-size: .85rem;
+  color: var(--fg2);
+  line-height: 1.55;
+}
+
+/* ── STORY SECTION ── */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 600px) {
+  .story-grid { grid-template-columns: 1fr; }
+}
+.story-item {
+  padding: 24px;
+  border-left: 3px solid var(--accent);
+  background: var(--card);
+  border-radius: 0 8px 8px 0;
+}
+.story-q {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--fg2);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.story-a {
+  font-size: .9rem;
+  color: var(--fg);
+  line-height: 1.65;
+}
+
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 240px;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 640px) {
+  .about-grid { grid-template-columns: 1fr; }
+}
+.about-text {
+  font-size: .97rem;
+  color: var(--fg2);
+  line-height: 1.8;
+}
+.about-text p + p { margin-top: 1em; }
+.about-text strong { color: var(--fg); font-weight: 500; }
+.about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stat-item {
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.stat-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.stat-label {
+  font-size: .8rem;
+  color: var(--fg2);
+  font-weight: 500;
+}
+
+/* ── CONTACT ── */
+.contact-bar {
+  background: var(--hero-bg);
+  color: var(--hero-fg);
+  border-radius: 12px;
+  padding: 36px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.contact-text-head {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: var(--hero-fg);
+}
+.contact-text-sub {
+  font-size: .9rem;
+  color: rgba(240,237,228,.65);
+  max-width: 380px;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-end;
+}
+@media (max-width: 540px) {
+  .contact-info { align-items: flex-start; }
+}
+.contact-email {
+  font-family: 'DM Mono', monospace;
+  font-size: .88rem;
+  color: var(--hero-accent);
+  letter-spacing: .02em;
+  word-break: break-all;
+}
+.contact-link {
+  font-size: .82rem;
+  color: rgba(240,237,228,.55);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(240,237,228,.2);
+  padding-bottom: 1px;
+  transition: color .15s;
+}
+.contact-link:hover { color: var(--hero-fg); }
+
+/* edit button */
+.contact-edit-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(240,237,228,.7);
+  border-radius: 6px;
+  padding: 5px 11px;
+  font-size: .75rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .15s, color .15s;
+}
+.contact-edit-btn:hover { background: rgba(255,255,255,.18); color: var(--hero-fg); }
+
+/* edit modal overlay */
+.edit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.edit-modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.edit-modal-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--fg);
+}
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.edit-label {
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--fg2);
+  font-family: 'DM Mono', monospace;
+}
+.edit-input {
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 7px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'DM Mono', monospace;
+  font-size: .88rem;
+  outline: none;
+  transition: border-color .15s;
+  width: 100%;
+}
+.edit-input:focus { border-color: var(--accent); }
+.edit-hint {
+  font-size: .75rem;
+  color: var(--fg2);
+  margin-top: 2px;
+}
+.edit-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+.btn-cancel {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--fg2);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: border-color .15s;
+}
+.btn-cancel:hover { border-color: var(--fg2); color: var(--fg); }
+.btn-save {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .15s;
+}
+.btn-save:hover { background: #b5511a; }
+
+/* ── OWNER MODE ── */
+.owner-lock {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--fg2);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  opacity: 0.35;
+  transition: opacity .2s;
+}
+.owner-lock:hover { opacity: 1; }
+.owner-lock.active { opacity: 1; background: var(--accent); color: #fff; border-color: var(--accent); }
+
+/* owner-only elements are hidden until owner mode is on */
+[data-owner] { display: none !important; }
+body.owner-mode [data-owner] { display: revert !important; }
+
+/* project links edit btn (inline, not absolute) */
+.proj-edit-btn {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  color: rgba(240,237,228,.65);
+  border-radius: 6px;
+  padding: 5px 11px;
+  font-size: .75rem;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: background .15s, color .15s;
+  margin-left: 8px;
+}
+.proj-edit-btn:hover { background: rgba(255,255,255,.18); color: var(--hero-fg); }
+
+/* password modal */
+.pw-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.6);
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.pw-modal {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pw-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.2rem;
+  color: var(--fg);
+}
+.pw-sub { font-size: .85rem; color: var(--fg2); }
+.pw-error { font-size: .82rem; color: #c0392b; display: none; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px clamp(16px, 5vw, 64px);
+  text-align: center;
+}
+.footer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: .82rem;
+  color: var(--fg2);
+}
+
+/* ── REDUCED MOTION ── */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+</style>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#">Rama Saladi</a>
+    <ul class="nav-links">
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Full-Stack · Mobile · AI-Assisted</div>
+      <h1 class="hero-name">Rama Saladi</h1>
+      <p class="hero-sub">
+        I build <strong>production-ready apps</strong> from the ground up — solo, end-to-end, from database schema and auth to Play Store submission. Most recently published a <strong>travel social app</strong> to Google Play with real users in closed testing.
+      </p>
+      <div class="hero-badges">
+        <span class="hero-badge">React Native</span>
+        <span class="hero-badge">Expo</span>
+        <span class="hero-badge">Supabase</span>
+        <span class="hero-badge">AI-Assisted Dev</span>
+        <span class="hero-badge">Android · Play Store</span>
+      </div>
+    </div>
+    <div class="hero-avatar" aria-hidden="true">RS</div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-header">
+      <span class="section-label">Work</span>
+      <div class="section-rule"></div>
+    </div>
+    <h2 class="section-title">Featured Project</h2>
+
+    <div class="project-card">
+      <!-- Phone mockup -->
+      <div class="project-showcase" aria-label="Travel Feed app screenshots">
+        <!-- Feed screen -->
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="screen-feed" style="position:absolute;inset:0;">
+              <div class="screen-feed-topbar">Travel Feed</div>
+              <div class="feed-card">
+                <div class="feed-card-img"></div>
+                <div class="feed-card-body">
+                  <div class="feed-card-title">Tokyo, Japan</div>
+                  <div class="feed-card-meta">3 days · 8 stops</div>
+                </div>
+              </div>
+              <div class="feed-card" style="margin-top:6px;">
+                <div class="feed-card-img" style="background:linear-gradient(135deg,#4a6741,#2d4a2a);">
+                  <span style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:18px;">🏔️</span>
+                </div>
+                <div class="feed-card-body">
+                  <div class="feed-card-title">Patagonia</div>
+                  <div class="feed-card-meta">2 days · 5 stops</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Profile screen (center/featured) -->
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="screen-profile" style="position:absolute;inset:0;">
+              <div class="profile-header-bar">My Profile</div>
+              <div class="profile-glass">
+                <div class="profile-avatar-mini">A</div>
+                <div class="profile-name-mini">@anji_saladi</div>
+                <div class="profile-handle">anji_saladi</div>
+                <div class="profile-btn">Edit Profile</div>
+              </div>
+              <div style="margin:6px 6px 0;padding:6px 8px;background:rgba(255,255,255,.06);border-radius:6px;border:1px solid rgba(255,255,255,.08);">
+                <div style="font-size:5.5px;color:rgba(255,255,255,.5);margin-bottom:4px;font-family:'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase;">My Trips</div>
+                <div style="font-size:6px;color:rgba(255,255,255,.8);font-weight:600;">4 trips · 22 stops</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Timeline screen -->
+        <div class="phone-frame">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="screen-timeline" style="position:absolute;inset:0;">
+              <div class="timeline-header">Tokyo Trip</div>
+              <div class="timeline-stop">
+                <div class="stop-dot"></div>
+                <div class="stop-content">
+                  <div class="stop-name">Senso-ji Temple</div>
+                  <div class="stop-note">Day 1 · Morning</div>
+                </div>
+              </div>
+              <div class="timeline-stop">
+                <div class="stop-dot" style="background:#7ab4d4;"></div>
+                <div class="stop-content">
+                  <div class="stop-name">Shibuya Crossing</div>
+                  <div class="stop-note">Day 1 · Afternoon</div>
+                </div>
+              </div>
+              <div class="timeline-stop">
+                <div class="stop-dot"></div>
+                <div class="stop-content">
+                  <div class="stop-name">Shinjuku Gardens</div>
+                  <div class="stop-note">Day 2 · Morning</div>
+                </div>
+              </div>
+              <div class="timeline-stop">
+                <div class="stop-dot" style="background:#7ab4d4;"></div>
+                <div class="stop-content">
+                  <div class="stop-name">teamLab Borderless</div>
+                  <div class="stop-note">Day 2 · Evening</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project details -->
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-eyebrow">Mobile App</span>
+          <span class="project-status">Live · Closed Testing</span>
+        </div>
+        <h3 class="project-name">Travel Feed</h3>
+        <p class="project-desc">
+          A full-stack travel social app where users document trips as day-by-day timelines of stops, each with photos, captions, and GPS coordinates. Built solo in six weeks — from Supabase schema design through to Play Store submission with 20+ beta testers. Features glassmorphism UI with dynamic Pexels backgrounds, OTP authentication, photo uploads, a social feed, and GDPR-compliant account deletion via an Edge Function.
+        </p>
+
+        <div class="project-highlights">
+          <div class="highlight">
+            <div class="highlight-label">Platform</div>
+            <div class="highlight-value">Android (Play Store)</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-label">Beta Testers</div>
+            <div class="highlight-value">20+ enrolled</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-label">Build Method</div>
+            <div class="highlight-value">EAS · .aab bundles</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-label">Auth Flow</div>
+            <div class="highlight-value">OTP · Resend SMTP</div>
+          </div>
+        </div>
+
+        <div class="tech-tags">
+          <span class="tag primary">React Native</span>
+          <span class="tag primary">Expo SDK 54</span>
+          <span class="tag primary">Supabase</span>
+          <span class="tag primary">TypeScript</span>
+          <span class="tag">PostgreSQL + RLS</span>
+          <span class="tag">Edge Functions (Deno)</span>
+          <span class="tag">EAS Build</span>
+          <span class="tag">Pexels API</span>
+          <span class="tag">expo-router</span>
+          <span class="tag">GitHub Pages</span>
+          <span class="tag">Google Play Console</span>
+        </div>
+
+        <div class="project-links" id="project-links-bar">
+          <!-- rendered by JS -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW I BUILT IT -->
+  <section id="story">
+    <div class="section-header">
+      <span class="section-label">Process</span>
+      <div class="section-rule"></div>
+    </div>
+    <h2 class="section-title">How it came together</h2>
+    <div class="story-grid">
+      <div class="story-item">
+        <div class="story-q">"How did you handle the full stack solo?"</div>
+        <div class="story-a">Used Claude as a pair programmer throughout — prompting for architecture decisions, debugging obscure EAS build errors, writing Row-Level Security policies, and generating Play Store assets. The AI handled the long tail of plumbing so I could stay focused on product decisions.</div>
+      </div>
+      <div class="story-item">
+        <div class="story-q">"What was the hardest part?"</div>
+        <div class="story-a">Getting the Supabase Edge Function for account deletion to authenticate correctly. The JWT verification toggle in the dashboard was on, which meant the anon key wasn't being accepted. Tracked it down through the function logs and fixed it by calling <code style="font-size:.82em;background:var(--bg2);padding:1px 4px;border-radius:3px;">getUser(token)</code> directly.</div>
+      </div>
+      <div class="story-item">
+        <div class="story-q">"How did you learn what you didn't know?"</div>
+        <div class="story-a">Iterated fast — ran into npm peer dependency conflicts, WSL installation issues, and Play Console policy requirements all in the same week. Each blocker became a learning loop: read the error, understand the system, fix forward.</div>
+      </div>
+      <div class="story-item">
+        <div class="story-q">"What would you do differently?"</div>
+        <div class="story-a">Set up the EAS environment variables before the first build instead of debugging a blank-screen crash on a real device. Also, git-initialize the repo before configuring EAS — it saves the <code style="font-size:.82em;background:var(--bg2);padding:1px 4px;border-radius:3px;">EAS_NO_VCS=1</code> workaround.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-header">
+      <span class="section-label">Capabilities</span>
+      <div class="section-rule"></div>
+    </div>
+    <h2 class="section-title">What I bring</h2>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-icon">📱</div>
+        <div class="skill-name">Mobile Development</div>
+        <div class="skill-desc">React Native + Expo from blank screen to Play Store. EAS builds, app.json config, adaptive icons, splash screens, and closed testing rollout.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🗄️</div>
+        <div class="skill-name">Backend & Database</div>
+        <div class="skill-desc">Supabase — schema design, Row-Level Security, storage buckets, and Edge Functions in Deno. PostgreSQL constraints and auth flows.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🎨</div>
+        <div class="skill-name">UI Engineering</div>
+        <div class="skill-desc">Glassmorphism with BlurView, animated scrolling backgrounds, custom navigation, dark-mode theming, and responsive layouts.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🤖</div>
+        <div class="skill-name">AI-Assisted Development</div>
+        <div class="skill-desc">Using Claude as a technical co-pilot: architecture decisions, debugging, SQL, and infrastructure — shipping faster without sacrificing depth.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🚀</div>
+        <div class="skill-name">Deployment & DevOps</div>
+        <div class="skill-desc">EAS Build + Submit, environment secrets, GitHub Pages for policy hosting, custom domain setup, Play Console end-to-end.</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-icon">🔒</div>
+        <div class="skill-name">Security & Compliance</div>
+        <div class="skill-desc">RLS policies, input length constraints, GDPR account deletion, privacy policy authoring, Play Store data safety forms.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-header">
+      <span class="section-label">Background</span>
+      <div class="section-rule"></div>
+    </div>
+    <h2 class="section-title">About me</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a <strong>2025 graduate of University of Central Missouri</strong> who built a production Android app from scratch while learning mobile development in parallel. Travel Feed went from zero to Play Store in six weeks — solo, no prior React Native experience.</p>
+        <p>I work best when I own the full stack. I'm comfortable holding the product vision, making architecture calls, debugging deep in the system, and shipping something real users install on their phones.</p>
+        <p>My approach to development is AI-augmented but judgment-led. I use Claude to accelerate the parts that are about know-how — syntax, APIs, SQL — and apply my own thinking to the parts that are about tradeoffs and priorities.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-item">
+          <div class="stat-num">6</div>
+          <div class="stat-label">Weeks from idea to Play Store</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Beta testers enrolled</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2025</div>
+          <div class="stat-label">UCM graduate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section>
+    <div class="contact-bar" id="contact-bar">
+      <button class="contact-edit-btn" id="edit-btn" onclick="openEdit()" aria-label="Edit contact details" data-owner>✏️ Edit</button>
+      <div>
+        <div class="contact-text-head">Let's work together</div>
+        <p class="contact-text-sub">Open to full-stack, mobile, or hybrid roles. Happy to walk through the codebase or talk through how I built Travel Feed.</p>
+      </div>
+      <div class="contact-info">
+        <span class="contact-email" id="display-email">anji.s8731@gmail.com</span>
+        <a class="contact-link" id="display-github" href="https://github.com/anjisaladi" target="_blank" rel="noopener">github.com/anjisaladi ↗</a>
+        <a class="contact-link" id="display-link2" href="https://anjisaladi.github.io/Travel-feed-legal/" target="_blank" rel="noopener">Travel Feed privacy page ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- EDIT MODAL -->
+<div class="edit-overlay" id="edit-overlay" hidden>
+  <div class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="edit-modal-title" id="modal-title">Edit Contact Details</div>
+
+    <div class="edit-field">
+      <label class="edit-label" for="inp-email">Email</label>
+      <input class="edit-input" id="inp-email" type="email" placeholder="you@example.com" autocomplete="email">
+    </div>
+
+    <div class="edit-field">
+      <label class="edit-label" for="inp-github">GitHub URL</label>
+      <input class="edit-input" id="inp-github" type="url" placeholder="https://github.com/yourname">
+      <div class="edit-hint">Leave blank to hide this link</div>
+    </div>
+
+    <div class="edit-field">
+      <label class="edit-label" for="inp-link2-label">Extra Link Label</label>
+      <input class="edit-input" id="inp-link2-label" type="text" placeholder="e.g. LinkedIn, Personal site">
+    </div>
+    <div class="edit-field">
+      <label class="edit-label" for="inp-link2-url">Extra Link URL</label>
+      <input class="edit-input" id="inp-link2-url" type="url" placeholder="https://…">
+      <div class="edit-hint">Leave blank to hide</div>
+    </div>
+
+    <div class="edit-actions">
+      <button class="btn-cancel" onclick="closeEdit()">Cancel</button>
+      <button class="btn-save" onclick="saveContact()">Save</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">Rama Saladi · Full-Stack & Mobile Developer · 2025</div>
+</footer>
+
+<!-- OWNER LOCK BUTTON (always visible, low opacity) -->
+<button class="owner-lock" id="owner-lock-btn" onclick="promptOwner()" aria-label="Owner mode" title="Owner login">🔒</button>
+
+<!-- PASSWORD MODAL -->
+<div class="pw-overlay" id="pw-overlay" hidden>
+  <div class="pw-modal" role="dialog" aria-modal="true" aria-labelledby="pw-title">
+    <div class="pw-title" id="pw-title">Owner Access</div>
+    <p class="pw-sub">Enter your password to edit portfolio content.</p>
+    <input class="edit-input" id="pw-input" type="password" placeholder="Password" autocomplete="current-password">
+    <div class="pw-error" id="pw-error">Incorrect password. Try again.</div>
+    <div class="edit-actions">
+      <button class="btn-cancel" onclick="closePw()">Cancel</button>
+      <button class="btn-save" onclick="checkPw()">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECT LINKS EDIT MODAL -->
+<div class="edit-overlay" id="proj-overlay" hidden>
+  <div class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="proj-modal-title">
+    <div class="edit-modal-title" id="proj-modal-title">Edit Project Links</div>
+
+    <div class="edit-field">
+      <label class="edit-label" for="inp-pp-url">Privacy Policy URL</label>
+      <input class="edit-input" id="inp-pp-url" type="url" placeholder="https://…">
+      <div class="edit-hint">Leave blank to hide button</div>
+    </div>
+    <div class="edit-field">
+      <label class="edit-label" for="inp-gh-url">GitHub / Repo URL</label>
+      <input class="edit-input" id="inp-gh-url" type="url" placeholder="https://github.com/…">
+      <div class="edit-hint">Leave blank to hide button</div>
+    </div>
+    <div class="edit-field">
+      <label class="edit-label" for="inp-extra-label">Extra Link Label</label>
+      <input class="edit-input" id="inp-extra-label" type="text" placeholder="e.g. App Store, Demo">
+    </div>
+    <div class="edit-field">
+      <label class="edit-label" for="inp-extra-url">Extra Link URL</label>
+      <input class="edit-input" id="inp-extra-url" type="url" placeholder="https://…">
+      <div class="edit-hint">Leave blank to hide</div>
+    </div>
+
+    <div class="edit-actions">
+      <button class="btn-cancel" onclick="closeProjEdit()">Cancel</button>
+      <button class="btn-save" onclick="saveProjLinks()">Save</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── OWNER MODE ──────────────────────────────────────────────
+// Password is stored as a SHA-256 hash. Default: "portfolio2025"
+// To change: run  crypto.subtle.digest('SHA-256', new TextEncoder().encode('newpass'))
+//            then convert to hex and replace OWNER_HASH below.
+const OWNER_HASH = '7367c98b14b9b37fcf0dd9bd6eb45e8671bed22fe70f085013ecae052eea27a4'; // "portfolio2025"
+const OWNER_SESSION_KEY = 'rs_owner_mode';
+
+async function sha256hex(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+function isOwner() {
+  try { return sessionStorage.getItem(OWNER_SESSION_KEY) === '1'; } catch { return false; }
+}
+
+function applyOwnerMode(on) {
+  document.body.classList.toggle('owner-mode', on);
+  const btn = document.getElementById('owner-lock-btn');
+  if (on) { btn.textContent = '🔓'; btn.classList.add('active'); btn.title = 'Owner mode active'; }
+  else     { btn.textContent = '🔒'; btn.classList.remove('active'); btn.title = 'Owner login'; }
+}
+
+function promptOwner() {
+  if (isOwner()) { // toggle off
+    try { sessionStorage.removeItem(OWNER_SESSION_KEY); } catch {}
+    applyOwnerMode(false);
+    return;
+  }
+  document.getElementById('pw-input').value = '';
+  document.getElementById('pw-error').style.display = 'none';
+  document.getElementById('pw-overlay').hidden = false;
+  document.getElementById('pw-input').focus();
+}
+
+function closePw() { document.getElementById('pw-overlay').hidden = true; }
+
+async function checkPw() {
+  const val = document.getElementById('pw-input').value;
+  const h = await sha256hex(val);
+  if (h === OWNER_HASH) {
+    try { sessionStorage.setItem(OWNER_SESSION_KEY, '1'); } catch {}
+    closePw();
+    applyOwnerMode(true);
+  } else {
+    const err = document.getElementById('pw-error');
+    err.style.display = 'block';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+
+document.getElementById('pw-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closePw();
+});
+document.getElementById('pw-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkPw();
+});
+
+// ── CONTACT ─────────────────────────────────────────────────
+const STORE_KEY = 'rs_portfolio_contact_v1';
+
+const defaults = {
+  email: 'anji.s8731@gmail.com',
+  githubUrl: 'https://github.com/anjisaladi',
+  link2Label: 'Travel Feed privacy page',
+  link2Url: 'https://anjisaladi.github.io/Travel-feed-legal/'
+};
+
+function loadContact() {
+  try {
+    const saved = localStorage.getItem(STORE_KEY);
+    return saved ? JSON.parse(saved) : { ...defaults };
+  } catch { return { ...defaults }; }
+}
+
+function saveToStorage(data) {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(data)); } catch {}
+}
+
+function renderContact(data) {
+  const emailEl = document.getElementById('display-email');
+  const ghEl = document.getElementById('display-github');
+  const l2El = document.getElementById('display-link2');
+
+  emailEl.textContent = data.email || defaults.email;
+
+  if (data.githubUrl) {
+    ghEl.hidden = false;
+    ghEl.href = data.githubUrl;
+    try {
+      const u = new URL(data.githubUrl);
+      ghEl.textContent = (u.hostname + u.pathname).replace(/\/$/, '') + ' ↗';
+    } catch { ghEl.textContent = data.githubUrl + ' ↗'; }
+  } else {
+    ghEl.hidden = true;
+  }
+
+  if (data.link2Url && data.link2Label) {
+    l2El.hidden = false;
+    l2El.href = data.link2Url;
+    l2El.textContent = data.link2Label + ' ↗';
+  } else {
+    l2El.hidden = true;
+  }
+}
+
+function openEdit() {
+  const data = loadContact();
+  document.getElementById('inp-email').value = data.email || '';
+  document.getElementById('inp-github').value = data.githubUrl || '';
+  document.getElementById('inp-link2-label').value = data.link2Label || '';
+  document.getElementById('inp-link2-url').value = data.link2Url || '';
+  document.getElementById('edit-overlay').hidden = false;
+  document.getElementById('inp-email').focus();
+}
+
+function closeEdit() { document.getElementById('edit-overlay').hidden = true; }
+
+function saveContact() {
+  const data = {
+    email: document.getElementById('inp-email').value.trim(),
+    githubUrl: document.getElementById('inp-github').value.trim(),
+    link2Label: document.getElementById('inp-link2-label').value.trim(),
+    link2Url: document.getElementById('inp-link2-url').value.trim()
+  };
+  saveToStorage(data);
+  renderContact(data);
+  closeEdit();
+}
+
+document.getElementById('edit-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeEdit();
+});
+
+// ── PROJECT LINKS ────────────────────────────────────────────
+const PROJ_KEY = 'rs_portfolio_projects_v1';
+
+const projDefaults = {
+  ppUrl: 'https://anjisaladi.github.io/Travel-feed-legal/',
+  ghUrl: '',           // blank = hidden until owner sets it
+  extraLabel: '',
+  extraUrl: ''
+};
+
+function loadProj() {
+  try {
+    const saved = localStorage.getItem(PROJ_KEY);
+    return saved ? JSON.parse(saved) : { ...projDefaults };
+  } catch { return { ...projDefaults }; }
+}
+
+function renderProjLinks(data) {
+  const bar = document.getElementById('project-links-bar');
+  bar.innerHTML = '';
+
+  if (data.ppUrl) {
+    const a = document.createElement('a');
+    a.className = 'btn btn-primary';
+    a.href = data.ppUrl;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = 'Privacy Policy ↗';
+    bar.appendChild(a);
+  }
+
+  if (data.ghUrl) {
+    const a = document.createElement('a');
+    a.className = 'btn btn-outline';
+    a.href = data.ghUrl;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = 'GitHub ↗';
+    bar.appendChild(a);
+  }
+
+  if (data.extraUrl && data.extraLabel) {
+    const a = document.createElement('a');
+    a.className = 'btn btn-outline';
+    a.href = data.extraUrl;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = data.extraLabel + ' ↗';
+    bar.appendChild(a);
+  }
+
+  // Edit button — owner only
+  const editBtn = document.createElement('button');
+  editBtn.className = 'btn btn-outline proj-edit-btn';
+  editBtn.setAttribute('data-owner', '');
+  editBtn.textContent = '✏️ Edit links';
+  editBtn.onclick = openProjEdit;
+  // Apply current owner visibility
+  editBtn.style.display = isOwner() ? '' : 'none';
+  // Re-apply when owner mode toggles (MutationObserver on body class)
+  bar.appendChild(editBtn);
+}
+
+// Keep proj edit btn in sync when owner mode toggles
+const bodyObserver = new MutationObserver(() => {
+  document.querySelectorAll('[data-owner]').forEach(el => {
+    if (el.tagName === 'BUTTON' && el.classList.contains('proj-edit-btn')) {
+      el.style.display = isOwner() ? '' : 'none';
+    }
+  });
+});
+bodyObserver.observe(document.body, { attributeFilter: ['class'] });
+
+function openProjEdit() {
+  const data = loadProj();
+  document.getElementById('inp-pp-url').value = data.ppUrl || '';
+  document.getElementById('inp-gh-url').value = data.ghUrl || '';
+  document.getElementById('inp-extra-label').value = data.extraLabel || '';
+  document.getElementById('inp-extra-url').value = data.extraUrl || '';
+  document.getElementById('proj-overlay').hidden = false;
+  document.getElementById('inp-pp-url').focus();
+}
+
+function closeProjEdit() { document.getElementById('proj-overlay').hidden = true; }
+
+function saveProjLinks() {
+  const data = {
+    ppUrl: document.getElementById('inp-pp-url').value.trim(),
+    ghUrl: document.getElementById('inp-gh-url').value.trim(),
+    extraLabel: document.getElementById('inp-extra-label').value.trim(),
+    extraUrl: document.getElementById('inp-extra-url').value.trim()
+  };
+  try { localStorage.setItem(PROJ_KEY, JSON.stringify(data)); } catch {}
+  renderProjLinks(data);
+  closeProjEdit();
+}
+
+document.getElementById('proj-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeProjEdit();
+});
+
+// ── GLOBAL ESCAPE ────────────────────────────────────────────
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeEdit(); closeProjEdit(); closePw(); }
+});
+
+// ── INIT ─────────────────────────────────────────────────────
+renderContact(loadContact());
+renderProjLinks(loadProj());
+if (isOwner()) applyOwnerMode(true);
+</script>
