@@ -1,4 +1,4 @@
-<title>Rama Saladi</title>
+<title>Anji Saladi</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap">
 
 <style>
@@ -694,10 +694,11 @@ footer {
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-name" href="#">Rama Saladi</a>
+    <a class="nav-name" href="#">Anji Saladi</a>
     <ul class="nav-links">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#about">About</a></li>
     </ul>
   </div>
@@ -708,7 +709,7 @@ footer {
   <div class="hero-inner">
     <div class="hero-content">
       <div class="hero-eyebrow">Full-Stack · Mobile · AI-Assisted</div>
-      <h1 class="hero-name">Rama Saladi</h1>
+      <h1 class="hero-name">Anji Saladi</h1>
       <p class="hero-sub">
         I build <strong>production-ready apps</strong> from the ground up — solo, end-to-end, from database schema and auth to Play Store submission. Most recently published a <strong>travel social app</strong> to Google Play with real users in closed testing.
       </p>
@@ -720,7 +721,7 @@ footer {
         <span class="hero-badge">Android · Play Store</span>
       </div>
     </div>
-    <div class="hero-avatar" aria-hidden="true">RS</div>
+    <div class="hero-avatar" aria-hidden="true">AS</div>
   </div>
 </header>
 
@@ -940,6 +941,90 @@ footer {
     </div>
   </section>
 
+  <!-- MASTER'S -->
+  <section id="education">
+    <div class="section-header">
+      <span class="section-label">Education</span>
+      <div class="section-rule"></div>
+    </div>
+    <h2 class="section-title">Master's in Computer Science</h2>
+
+    <div class="project-card" style="margin-bottom:32px;">
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-eyebrow">University of Central Missouri</span>
+          <span class="project-status">2023 – 2025</span>
+        </div>
+        <h3 class="project-name" style="font-size:1.4rem;">M.S. Computer Science</h3>
+        <p class="project-desc" style="margin-bottom:20px;">Focused on AI, machine learning, and data science — building the theory and applied skills to work on intelligent systems end-to-end.</p>
+
+        <div class="highlight-label" style="margin-bottom:12px;">Relevant Coursework</div>
+        <div class="tech-tags" style="margin-bottom:0;">
+          <span class="tag primary">Machine Learning</span>
+          <span class="tag primary">Neural Networks &amp; Deep Learning</span>
+          <span class="tag primary">Programming Foundations for Data Science &amp; AI</span>
+          <span class="tag primary">Advanced Data Visualization</span>
+          <span class="tag primary">Big Data Analytics</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Project -->
+    <div class="section-header" style="margin-top:8px;">
+      <span class="section-label">Research</span>
+      <div class="section-rule"></div>
+    </div>
+    <h2 class="section-title" style="font-size:1.5rem;margin-bottom:24px;">Academic Project</h2>
+
+    <div class="project-card">
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-eyebrow">Neural Networks &amp; Deep Learning</span>
+          <span class="project-status">Course Project</span>
+        </div>
+        <h3 class="project-name" style="font-size:1.5rem;">Real-Time Object Detection with Transfer Learning</h3>
+        <p class="project-desc">
+          Built a single-object detector end to end, from collecting my own webcam images to live detection. Annotated 60 images in LabelMe, expanded the training set 60× with Albumentations, and trained a VGG16-based model with two heads: one classifies whether the object is present, the other predicts its bounding box. Wrote a custom localization loss and Keras training loop, evaluated on a held-out test set with accuracy and IoU, and deployed it on a live webcam feed with OpenCV.
+        </p>
+
+        <div class="project-highlights" style="margin-bottom:24px;">
+          <div class="highlight">
+            <div class="highlight-label">Architecture</div>
+            <div class="highlight-value">VGG16 (CNN)</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-label">Dataset</div>
+            <div class="highlight-value">60 images · 60× aug</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-label">Output</div>
+            <div class="highlight-value">Class + bounding box</div>
+          </div>
+          <div class="highlight">
+            <div class="highlight-label">Test Mean IoU</div>
+            <div class="highlight-value">0.78 · 100% IoU ≥ 0.5</div>
+          </div>
+        </div>
+
+        <div class="tech-tags">
+          <span class="tag primary">Python</span>
+          <span class="tag primary">TensorFlow / Keras</span>
+          <span class="tag primary">VGG16</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">LabelMe</span>
+          <span class="tag">Albumentations</span>
+          <span class="tag">Transfer Learning</span>
+          <span class="tag">Custom Training Loop</span>
+          <span class="tag">Real-Time Inference</span>
+        </div>
+
+        <div class="project-links">
+          <a class="btn btn-outline" href="https://github.com/anjisaladi/real-time-object-detection" target="_blank" rel="noopener">View Code ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section id="about">
     <div class="section-header">
@@ -949,7 +1034,7 @@ footer {
     <h2 class="section-title">About me</h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>I'm a <strong>2025 graduate of University of Central Missouri</strong> who built a production Android app from scratch while learning mobile development in parallel. Travel Feed went from zero to Play Store in six weeks — solo, no prior React Native experience.</p>
+        <p>I built a production Android app from scratch while learning mobile development in parallel. Travel Feed went from zero to Play Store in six weeks — solo, no prior React Native experience.</p>
         <p>I work best when I own the full stack. I'm comfortable holding the product vision, making architecture calls, debugging deep in the system, and shipping something real users install on their phones.</p>
         <p>My approach to development is AI-augmented but judgment-led. I use Claude to accelerate the parts that are about know-how — syntax, APIs, SQL — and apply my own thinking to the parts that are about tradeoffs and priorities.</p>
       </div>
@@ -961,10 +1046,6 @@ footer {
         <div class="stat-item">
           <div class="stat-num">20+</div>
           <div class="stat-label">Beta testers enrolled</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-num">2025</div>
-          <div class="stat-label">UCM graduate</div>
         </div>
       </div>
     </div>
@@ -988,5 +1069,5 @@ footer {
 </main>
 
 <footer>
-  <div class="footer-inner">Rama Saladi · Full-Stack & Mobile Developer · 2025</div>
+  <div class="footer-inner">Anji Saladi · Full-Stack & Mobile Developer · 2025</div>
 </footer>
